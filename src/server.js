@@ -1,12 +1,7 @@
-/* eslint-disable no-useless-return */
-import express from 'express';
+const express = require('express');
 
 const app = express();
 
-app.use('/', (req, res) => {
-  console.log('entered');
-
-  return res.send({ message: 'hello backend' });
-});
+app.get('/', (req, res) => res.sendFile(`${__dirname}/views/index.html`));
 
 app.listen(3000, () => console.log('server is running 🔥'));
