@@ -5,10 +5,19 @@ const routes = Router();
 // basepath
 const views = `${__dirname}/views/`;
 
+const profile = {
+  name: 'Tiago',
+  avatar: 'https://avatars.githubusercontent.com/u/69446514?v=4',
+  monthlyBudget: 3000,
+  daysPerWeek: 5,
+  hoursPerDay: 6,
+  vacationPerYear: 5,
+};
+
 // routes
-routes.get('/', (req, res) => res.render(`${views}index`));
+routes.get('/', (req, res) => res.render(`${views}index`, { profile }));
 routes.get('/job', (req, res) => res.render(`${views}job`));
 routes.get('/job/edit', (req, res) => res.render(`${views}job-edit`));
-routes.get('/profile', (req, res) => res.render(`${views}profile`));
+routes.get('/profile', (req, res) => res.render(`${views}profile`, { profile }));
 
 module.exports = routes;
