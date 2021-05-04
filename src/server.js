@@ -4,6 +4,8 @@ const routes = require('./routes');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 // static file paths
 app.use(express.static('public'));
 
