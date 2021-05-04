@@ -4,6 +4,7 @@ const routes = require('./routes');
 
 const app = express();
 
+// using template engine
 app.set('view engine', 'ejs');
 
 // static file paths
