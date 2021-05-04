@@ -1,16 +1,29 @@
 {
 	"env": {
 		"browser": true,
-		"commonjs": false,
 		"es2021": true,
 		"node": true
 	},
 	"extends": [
 		"airbnb-base"
 	],
+	"plugins": [
+		"import-helpers"
+	],
 	"parserOptions": {
 		"ecmaVersion": 12
 	},
 	"rules": {
+		"import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          [ "parent", "sibling", "index" ]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
 	}
 }
