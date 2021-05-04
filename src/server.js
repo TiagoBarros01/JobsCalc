@@ -1,9 +1,14 @@
 const express = require('express');
 
+const routes = require('./routes');
+
 const app = express();
 
+// static file paths
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.sendFile(`${__dirname}/views/index.html`));
+// routes
+app.use(routes);
 
+// create server
 app.listen(3000, () => console.log('server is running 🔥'));
