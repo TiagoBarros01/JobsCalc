@@ -14,19 +14,38 @@ const profile = {
   vacationPerYear: 5,
 };
 
-const jobs = [];
+const jobs = [
+  {
+    id: 1,
+    name: 'Pizzaria Guloso',
+    dailyHours: 2,
+    totalHours: 60,
+    createdAt: Date.now(),
+  },
+  {
+    id: 2,
+    name: 'OneTwo Project',
+    dailyHours: 3,
+    totalHours: 47,
+    createdAt: Date.now(),
+  },
+];
 
 // routes
-routes.get('/', (req, res) => res.render(`${views}index`, { profile }));
+routes.get('/', (req, res) => res.render(`${views}index`, { profile, jobs }));
 routes.get('/job', (req, res) => res.render(`${views}job`));
 
 routes.post('/job', (req, res) => {
   const job = req.body;
-  job.createdAt = Date.now();
+
+  const lastId = jobs[jobs.length - 1]?.id || 1;
 
   jobs.push({
+    id: lastId + 1,
     name: job.name,
-    dailyHours: '',
+    dailyHours: job.dailyHours,
+    totalHours: job.totalHours,
+    createdAt: Date.now(),
   });
   return res.redirect('/');
 });
