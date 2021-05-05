@@ -19,12 +19,12 @@ fieldset .separator {
   margin-bottom: 2rem;
 }
 
-form .input-group {
+form .inputGroup {
   display: flex;
   margin-top: 1.5rem;
 }
 
-form .input-group .input-wrapper + .input-wrapper {
+form .inputGroup .inputWrapper + .inputWrapper {
   margin-left: 1.5rem;
 }
 

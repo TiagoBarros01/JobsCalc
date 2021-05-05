@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 export default function Modal({ animateClasses = [] }) {
-  const wrapper = document.querySelector('.modal-wrapper');
+  const wrapper = document.querySelector('.modalWrapper');
   const element = document.querySelector('.modal');
   const cancelButton = element.querySelector('footer .button:nth-child(1)');
 

@@ -1,9 +1,9 @@
-.modal-wrapper {
+.modalWrapper {
   visibility: hidden;
   opacity: 0;
 }
 
-.modal-wrapper.on {
+.modalWrapper.on {
   height: 100vh;
   width: 100vw;
 

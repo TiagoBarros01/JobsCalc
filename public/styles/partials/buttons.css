@@ -67,7 +67,7 @@ button.button {
   background: #F0F2F5;
 }
 
-.button-group {
+.buttonGroup {
   display: flex;
   align-items: center;
 }

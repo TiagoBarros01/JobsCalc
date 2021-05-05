@@ -22,39 +22,39 @@
       rel="stylesheet"
     />
   </head>
-  <body id="page-job">
+  <body id="pageJob">
 
     <%-include('components/page-header', { title: 'Add a new job' }) %>
 
-    <div class="container flex animate-up delay-2">
+    <div class="container flex animateUp delay-2">
       <main>
-        <form id="form-job" action="/job" method="POST" >
+        <form id="formJob" action="/job" method="POST" >
           <fieldset>
             <legend>Job data</legend>
             <div class="separator light"></div>
 
-            <div class="input-wrapper">
+            <div class="inputWrapper">
               <label for="name">Nome do Job</label>
               <input type="text" id="name" name="name" />
             </div>
 
-            <div class="input-group">
-              <div class="input-wrapper">
-                <label for="daily-hours">How many hours per day will you dedicate to job?</label>
+            <div class="inputGroup">
+              <div class="inputWrapper">
+                <label for="dailyHours">How many hours per day will you dedicate to job?</label>
                 <input 
                   type="number"
                   step="0.1" 
-                  id="daily-hours" 
-                  name="daily-hours"/>
+                  id="dailyHours" 
+                  name="dailyHours"/>
               </div>
 
-              <div class="input-wrapper">
-                <label for="total-hours">Estimativa de <br/>
+              <div class="inputWrapper">
+                <label for="totalHours">Estimativa de <br/>
                   horas para esse Job?</label>
                 <input 
                   type="number"
-                  id="total-hours" 
-                  name="total-hours" />
+                  id="totalHours" 
+                  name="totalHours" />
               </div>
             </div>
           </fieldset>
@@ -62,15 +62,15 @@
         </form>
       </main>
       <aside class="card">
-        <img src="/images/money-gray.svg" alt="Imagem de Dinheiro">
+        <img src="/images/money-gray.svg" alt="Money image">
         <p>
           Preencha os dados ao lado para
           ver o valor do projeto
         </p>
-        <div class="button-group">
+        <div class="buttonGroup">
           <button 
             class="button green" 
-            form="form-job" 
+            form="formJob" 
             type="submit" 
             title="Salvar Dados">Salvar</button>
           <a 
