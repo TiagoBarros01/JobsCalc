@@ -85,7 +85,7 @@
             </div>
             <div class="deadline column">
               <span>Deadline</span>
-              <p><%= job.remaining %>  days for delivery</p>
+              <p><%= job.remaining === 0 ? 'Delivered' : `${job.remaining} days for delivery`%></p>
             </div>
             <div class="amount column">
               <span>Value</span>
