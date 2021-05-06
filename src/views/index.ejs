@@ -65,7 +65,7 @@
             <span>
               <img src="/images/plus-24.svg" alt="Novo Job" /> 
             </span>
-            Adicionar novo job
+            Add a new job
           </a>
         </section>
       </div>
@@ -73,26 +73,26 @@
 
     <div class="container">
       <main class="animateUp delay-2">
-        <h1 class="sr-only">Trabalhos</h1>
+        <h1 class="sr-only">Jobs</h1>
 
         <div class="cards">
           <% jobs.map((job) => { %>
 
-            <div class="card progress" data-id="<%= job.id %>">
+            <div class="card <%= job.status %>  data-id="<%= job.id %>">
             <div class="id column"><%= job.id %></div>
             <div class="name column">
               <%= job.name %>
             </div>
             <div class="deadline column">
-              <span>Prazo</span>
-              <p>3 dias para a entrega</p>
+              <span>Deadline</span>
+              <p><%= job.remaining %>  days for delivery</p>
             </div>
             <div class="amount column">
-              <span>Valor</span>
-              <p>R$ 4500,00</p>
+              <span>Value</span>
+              <p>R$ <%= job.budget.toFixed(2).replace('.', ',') %> </p>
             </div>
             <div class="status badge column">
-              Em andamento
+              <%= job.status === 'done' ? 'Finished' : 'In progress' %> 
             </div>
             <div class="actions column flex">
               <p class="sr-only">Ações</p>
