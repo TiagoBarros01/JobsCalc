@@ -41,7 +41,7 @@ const jobControl = {
     save(req, res) {
       const job = req.body;
 
-      const lastId = jobControl.data[jobControl.data.length - 1]?.id || 1;
+      const lastId = jobControl.data[jobControl.data.length - 1]?.id || 0;
 
       jobControl.data.push({
         id: lastId + 1,
@@ -90,6 +90,13 @@ const jobControl = {
       });
 
       return res.redirect(`/job/${jobId}`);
+    },
+    delete(req, res) {
+      const jobId = req.params.id;
+
+      jobControl.data = jobControl.data.filter((item) => Number(item.id) !== Number(jobId));
+
+      return res.redirect('/');
     },
   },
   services: {
