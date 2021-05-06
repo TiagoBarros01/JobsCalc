@@ -1,5 +1,5 @@
 const views = require('../basePath');
-const profile = require('./profile');
+const Profile = require('./Profile');
 
 const jobControl = {
   data: [
@@ -28,11 +28,11 @@ const jobControl = {
           ...job,
           remaining,
           status,
-          budget: profile.valueHour * job.totalHours,
+          budget: Profile.data.valueHour * job.totalHours,
         };
       });
 
-      return res.render(`${views}index`, { profile, jobs: updatedJobs });
+      return res.render(`${views}index`, { profile: Profile.data, jobs: updatedJobs });
     },
     create(req, res) {
       return res.render(`${views}job`);
