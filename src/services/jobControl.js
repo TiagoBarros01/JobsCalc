@@ -1,14 +1,5 @@
 const views = require('../basePath');
-
-const profile = {
-  name: 'Tiago',
-  avatar: 'https://www.github.com/tiagobarros01.png',
-  monthlyBudget: 3000,
-  daysPerWeek: 5,
-  hoursPerDay: 6,
-  vacationPerYear: 5,
-  valueHour: 75,
-};
+const profile = require('./profile');
 
 const jobControl = {
   data: [
@@ -43,6 +34,23 @@ const jobControl = {
 
       return res.render(`${views}index`, { profile, jobs: updatedJobs });
     },
+    create(req, res) {
+      return res.render(`${views}job`);
+    },
+    save(req, res) {
+      const job = req.body;
+
+      const lastId = jobControl.data[jobControl.data.length - 1]?.id || 1;
+
+      jobControl.data.push({
+        id: lastId + 1,
+        name: job.name,
+        dailyHours: job.dailyHours,
+        totalHours: job.totalHours,
+        createdAt: Date.now(),
+      });
+      return res.redirect('/');
+    },
   },
   services: {
     remainingDays(job) {
@@ -62,4 +70,4 @@ const jobControl = {
   },
 };
 
-module.exports = { profile, jobControl };
+module.exports = { jobControl };
