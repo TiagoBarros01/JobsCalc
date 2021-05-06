@@ -31,7 +31,7 @@
     <%-include('components/page-header', { title: 'Edit job' }) %>
 
     <div class="container flex animateUp delay-2">
-        <form id="formJob">
+        <form id="formJob" method="POST" action="/job/<%= job.id %> " >
           <fieldset>
             <legend>Dados do Job</legend>
             <div class="separator light"></div>

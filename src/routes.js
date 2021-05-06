@@ -10,6 +10,7 @@ routes.get('/', jobControl.controllers.index);
 routes.get('/job', jobControl.controllers.create);
 routes.post('/job', jobControl.controllers.save);
 routes.get('/job/:id', jobControl.controllers.show);
+routes.post('/job/:id', jobControl.controllers.update);
 routes.get('/profile', Profile.controllers.index);
 routes.post('/profile', Profile.controllers.update);
 

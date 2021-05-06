@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const views = require('../basePath');
 const Profile = require('./Profile');
 
@@ -63,6 +64,32 @@ const jobControl = {
       job.budget = jobControl.services.calculateBudget(job, Profile.data.valueHour);
 
       return res.render(`${views}job-edit`, { job });
+    },
+    update(req, res) {
+      const jobId = req.params.id;
+
+      const job = jobControl.data.find((item) => Number(item.id) === Number(jobId));
+
+      if (!job) {
+        return res.send({ error: 'Job not found' });
+      }
+
+      const updatedJob = {
+        ...job,
+        name: req.body.name,
+        totalHours: req.body.totalHours,
+        dailyHours: req.body.dailyHours,
+      };
+
+      jobControl.data = jobControl.data.map((item) => {
+        if (Number(item.id) === Number(jobId)) {
+          item = updatedJob;
+        }
+
+        return item;
+      });
+
+      return res.redirect(`/job/${jobId}`);
     },
   },
   services: {
