@@ -47,7 +47,7 @@
             <div class="inputGroup">
               <div class="inputWrapper">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="name" value="<%= profile.name %> " />
+                <input type="text" id="name" name="name" value="<%= profile.name %>" maxlength="24" />
               </div>
 
               <div class="inputWrapper">
@@ -57,7 +57,8 @@
                 type="url" 
                 id="avatar" 
                 name="avatar"
-                value="<%= profile.avatar %>" />
+                value="<%= profile.avatar %>"
+                maxlength="50" />
               </div>
             </div>
           </fieldset>
@@ -70,8 +71,10 @@
               <div class="inputWrapper">
                 <label for="monthlyBudget">Quanto eu <br/>quero ganhar por mês?</label>
                 <input 
-                  type="amount"
-                  step="0.1" 
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="99999"
                   id="monthlyBudget" 
                   name="monthlyBudget" 
                   placeholder="R$"
@@ -83,6 +86,8 @@
                   quero trabalhar por dia?</label>
                 <input 
                   type="number"
+                  min="0"
+                  max="24"
                   id="hoursPerDay" 
                   name="hoursPerDay" 
                   value="<%= profile.hoursPerDay %>" />
@@ -95,6 +100,8 @@
                   trabalhar por semana?</label>
                 <input
                   type="number"
+                  min="0"
+                  max="7"
                   id="daysPerWeek" 
                   name="daysPerWeek" 
                   value="<%= profile.daysPerWeek %>" />
@@ -105,6 +112,8 @@
                   por ano você quer tirar férias?</label>
                 <input 
                   type="number" 
+                  min="0"
+                  max="10"
                   id="vacationPerYear" 
                   name="vacationPerYear"
                   value="<%= profile.vacationPerYear %>" />
