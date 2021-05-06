@@ -15,6 +15,25 @@ const Profile = {
     index(req, res) {
       return res.render(`${views}profile`, { profile: Profile.data });
     },
+
+    update(req, res) {
+      const data = req.body;
+
+      const weekPerYear = 52;
+      const weeksPerMonth = (weekPerYear - data.vacationPerYear) / 12;
+      const totalWeekHours = data.hoursPerDay * data.daysPerWeek;
+      const totalMonthlyHours = totalWeekHours * weeksPerMonth;
+
+      const valueHour = data.monthlyBudget / totalMonthlyHours;
+
+      Profile.data = {
+        ...Profile.data,
+        ...req.body,
+        valueHour,
+      };
+
+      return res.redirect('/profile');
+    },
   },
 };
 

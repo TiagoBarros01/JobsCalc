@@ -13,5 +13,6 @@ routes.get('/job', jobControl.controllers.create);
 routes.post('/job', jobControl.controllers.save);
 routes.get('/job/edit', (req, res) => res.render(`${views}job-edit`));
 routes.get('/profile', Profile.controllers.index);
+routes.post('/profile', Profile.controllers.update);
 
 module.exports = routes;
