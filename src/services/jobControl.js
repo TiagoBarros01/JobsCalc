@@ -28,7 +28,7 @@ const jobControl = {
           ...job,
           remaining,
           status,
-          budget: Profile.data.valueHour * job.totalHours,
+          budget: jobControl.services.calculateBudget(job, Profile.data.valueHour),
         };
       });
 
@@ -51,6 +51,19 @@ const jobControl = {
       });
       return res.redirect('/');
     },
+    show(req, res) {
+      const jobId = req.params.id;
+
+      const job = jobControl.data.find((item) => Number(item.id) === Number(jobId));
+
+      if (!job) {
+        return res.send({ error: 'Job not found' });
+      }
+
+      job.budget = jobControl.services.calculateBudget(job, Profile.data.valueHour);
+
+      return res.render(`${views}job-edit`, { job });
+    },
   },
   services: {
     remainingDays(job) {
@@ -67,6 +80,7 @@ const jobControl = {
 
       return dayDiff;
     },
+    calculateBudget: (job, valueHour) => valueHour * job.totalHours,
   },
 };
 
