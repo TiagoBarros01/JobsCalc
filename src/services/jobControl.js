@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-const views = require('../basePath');
 const Profile = require('./Profile');
 
 const jobControl = {
@@ -33,10 +32,10 @@ const jobControl = {
         };
       });
 
-      return res.render(`${views}index`, { profile: Profile.data, jobs: updatedJobs });
+      return res.render('index', { profile: Profile.data, jobs: updatedJobs });
     },
     create(req, res) {
-      return res.render(`${views}job`);
+      return res.render('job');
     },
     save(req, res) {
       const job = req.body;
@@ -63,7 +62,7 @@ const jobControl = {
 
       job.budget = jobControl.services.calculateBudget(job, Profile.data.valueHour);
 
-      return res.render(`${views}job-edit`, { job });
+      return res.render('job-edit', { job });
     },
     update(req, res) {
       const jobId = req.params.id;
