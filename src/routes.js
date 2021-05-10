@@ -3,7 +3,7 @@ const { Router } = require('express');
 const routes = Router();
 
 const { jobControl } = require('./services/jobControl');
-const Profile = require('./services/Profile');
+const { Profile } = require('./services/Profile');
 
 // routes
 routes.get('/', jobControl.controllers.index);

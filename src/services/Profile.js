@@ -35,4 +35,4 @@ const Profile = {
   },
 };
 
-module.exports = Profile;
+module.exports = { Profile };

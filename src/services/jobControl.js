@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-const Profile = require('./Profile');
+const { Profile } = require('./Profile');
 
 const jobControl = {
   data: [
