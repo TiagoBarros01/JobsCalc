@@ -1,5 +1,3 @@
-const views = require('../basePath');
-
 const Profile = {
   data: {
     name: 'Tiago',
@@ -13,7 +11,7 @@ const Profile = {
 
   controllers: {
     index(req, res) {
-      return res.render(`${views}profile`, { profile: Profile.data });
+      return res.render('profile', { profile: Profile.data });
     },
 
     update(req, res) {

@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 // using template engine
 app.set('view engine', 'ejs');
 
+// setting default folder is 'views'
 app.set('views', path.join(__dirname, 'views'));
 
 // static file paths
