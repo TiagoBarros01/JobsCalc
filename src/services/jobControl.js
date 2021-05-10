@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-const { Profile } = require('./Profile');
+const Profile = require('../model/Profile');
 
 const jobControl = {
   data: [
@@ -28,11 +28,11 @@ const jobControl = {
           ...job,
           remaining,
           status,
-          budget: jobControl.services.calculateBudget(job, Profile.data.valueHour),
+          budget: jobControl.services.calculateBudget(job, Profile.get().valueHour),
         };
       });
 
-      return res.render('index', { profile: Profile.data, jobs: updatedJobs });
+      return res.render('index', { profile: Profile.get(), jobs: updatedJobs });
     },
     create(req, res) {
       return res.render('job');
@@ -60,7 +60,7 @@ const jobControl = {
         return res.send({ error: 'Job not found' });
       }
 
-      job.budget = jobControl.services.calculateBudget(job, Profile.data.valueHour);
+      job.budget = jobControl.services.calculateBudget(job, Profile.get().valueHour);
 
       return res.render('job-edit', { job });
     },
