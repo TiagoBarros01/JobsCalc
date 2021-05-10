@@ -7,6 +7,12 @@ const jobs = Job.get();
 
 module.exports = {
   index(req, res) {
+    const statusCount = {
+      progress: 0,
+      done: 0,
+      total: jobs.length,
+    };
+
     const updatedJobs = jobs.map((job) => {
       const remaining = JobUtils.remainingDays(job);
       const status = remaining <= 0 ? 'done' : 'progress';
@@ -19,6 +25,6 @@ module.exports = {
       };
     });
 
-    return res.render('index', { profile, jobs: updatedJobs });
+    return res.render('index', { jobs: updatedJobs, profile, statusCount });
   },
 };
