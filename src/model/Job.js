@@ -2,8 +2,8 @@ let data = [
   {
     id: 1,
     name: 'Pizzaria Guloso',
-    dailyHours: 3,
-    totalHours: 3,
+    dailyHours: 2,
+    totalHours: 1,
     createdAt: Date.now(),
   },
   {
