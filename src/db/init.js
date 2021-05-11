@@ -29,7 +29,6 @@ const initDb = async () => {
   daysPerWeek,
   hoursPerDay,
   vacationPerYear,
-  valueHour
 ) VALUES (
   "Tiago",
   "https://www.github.com/tiagobarros01.png",
