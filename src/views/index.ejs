@@ -32,7 +32,7 @@
           <img id="logo" src="/images/logo.svg" alt="Logo" />
           <span id="notification">
             <img src="/images/alert-octagon.svg" alt="Alerta" />
-            You have <%= freeHours %> hours free in your day
+            <%= freeHours <= 0 ? 'You dont have free hours' : `You have ${freeHours} free hours in your day` %> 
           </span>
           <a href="/profile" id="avatar-profile">
             <p><%= profile.name %> <span>My profile</span></p>
