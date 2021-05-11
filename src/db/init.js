@@ -1,6 +1,6 @@
 const Database = require('./config');
 
-const initDb = async () => {
+(async () => {
   const db = await Database();
 
   await db.exec(`CREATE TABLE profile (
@@ -28,7 +28,7 @@ const initDb = async () => {
   monthlyBudget,
   daysPerWeek,
   hoursPerDay,
-  vacationPerYear,
+  vacationPerYear
 ) VALUES (
   "Tiago",
   "https://www.github.com/tiagobarros01.png",
@@ -54,7 +54,7 @@ const initDb = async () => {
   name,
   dailyHours,
   totalHours,
-  createdAt,
+  createdAt
 ) VALUES (
   "OneTwo Projects",
   3,
@@ -63,6 +63,4 @@ const initDb = async () => {
 )`);
 
   await db.close();
-};
-
-initDb();
+})();
