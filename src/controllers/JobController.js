@@ -3,14 +3,13 @@ const Job = require('../model/Job');
 const Profile = require('../model/Profile');
 const JobUtils = require('../utils/JobUtils');
 
-const jobs = Job.get();
-const profile = Profile.get();
-
 module.exports = {
   create(req, res) {
     return res.render('job');
   },
-  save(req, res) {
+  async save(req, res) {
+    const jobs = await Job.get();
+
     const job = req.body;
 
     const lastId = jobs[jobs.length - 1]?.id || 0;
@@ -25,7 +24,10 @@ module.exports = {
 
     return res.redirect('/');
   },
-  show(req, res) {
+  async show(req, res) {
+    const jobs = await Job.get();
+    const profile = await Profile.get();
+
     const jobId = req.params.id;
 
     const job = jobs.find((item) => Number(item.id) === Number(jobId));
@@ -38,7 +40,9 @@ module.exports = {
 
     return res.render('job-edit', { job });
   },
-  update(req, res) {
+  async update(req, res) {
+    const jobs = await Job.get();
+
     const jobId = req.params.id;
 
     const job = jobs.find((item) => Number(item.id) === Number(jobId));

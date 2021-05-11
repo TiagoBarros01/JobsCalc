@@ -1,3 +1,5 @@
+const Database = require('../db/config');
+
 let data = [
   {
     id: 1,
@@ -16,8 +18,20 @@ let data = [
 ];
 
 module.exports = {
-  get() {
-    return data;
+  async get() {
+    const db = await Database();
+
+    const jobs = await db.all('SELECT * FROM jobs');
+
+    await db.close();
+
+    return jobs.map((job) => ({
+      id: job.id,
+      name: job.name,
+      dailyHours: job.dailyHours,
+      totalHours: job.totalHours,
+      createdAt: job.createdAt,
+    }));
   },
   create(newJob) {
     data.push(newJob);
