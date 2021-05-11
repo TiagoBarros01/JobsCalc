@@ -33,8 +33,22 @@ module.exports = {
       createdAt: job.createdAt,
     }));
   },
-  create(newJob) {
-    data.push(newJob);
+  async create(newJob) {
+    const db = await Database();
+
+    await db.run(`INSERT INTO jobs (
+      name,
+      dailyHours,
+      totalHours,
+      createdAt
+    ) VALUES (
+      "${newJob.name}",
+      ${newJob.dailyHours},
+      ${newJob.totalHours},
+      ${newJob.createdAt}
+    )`);
+
+    await db.close();
   },
   update(updateJob) {
     data = updateJob;
