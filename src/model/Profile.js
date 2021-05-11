@@ -6,11 +6,23 @@ module.exports = {
 
     const data = await db.get('SELECT * FROM profile ');
 
-    db.close();
+    await db.close();
 
     return data;
   },
-  update(newData) {
-    data = newData;
+  async update(newData) {
+    const db = await Database();
+
+    await db.run(`UPDATE profile SET
+      name = "${newData.name}",
+      avatar = "${newData.avatar}",
+      monthlyBudget = ${newData.monthlyBudget},
+      daysPerWeek = ${newData.daysPerWeek},
+      hoursPerDay = ${newData.hoursPerDay},
+      vacationPerYear = ${newData.vacationPerYear},
+      valueHour = ${newData.valueHour}
+    `);
+
+    await db.close();
   },
 };
