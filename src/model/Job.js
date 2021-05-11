@@ -53,7 +53,12 @@ module.exports = {
   update(updateJob) {
     data = updateJob;
   },
-  delete(jobId) {
+  async delete(jobId) {
+    const db = await Database();
+
+    await db.run(`DELETE FROM jobs WHERE id = ${jobId}`);
+
+    await db.close();
     data = data.filter((item) => Number(item.id) !== Number(jobId));
   },
 };
