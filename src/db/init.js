@@ -28,14 +28,16 @@ const Database = require('./config');
   monthlyBudget,
   daysPerWeek,
   hoursPerDay,
-  vacationPerYear
+  vacationPerYear,
+  valueHour
 ) VALUES (
   "Tiago",
   "https://www.github.com/tiagobarros01.png",
   3000,
   5,
   5,
-  4
+  4,
+  70
 )`);
 
   await db.run(`INSERT INTO jobs (
