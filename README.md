@@ -35,14 +35,11 @@ This project was developed with the following techs:
 
 ## 💻 Project
 
-O JobsCalc é uma aplicação de estimativa de cálculo para projetos freelancer, onde é possível cadastrar e excluir jobs (projetos), obtendo uma estimativa de custo de cada job. Além disso, é possível traçar o valor da hora da pessoa que estará usando o sistema 💰
+The JobsCalc is an calculation estimate app for freelancer projects, where is it possible to register and delete jobs (projects), getting an estimate of the cost of each job. Beyond that, it's possible to plot the person's hourly value of the person who will be using the app 💰
 
 ## 🔖 Layout
 
 You can see the project layout through [this link](https://www.figma.com/file/s4fytPFbDiSkv4GPSfKaLE/Jobs-Planning). It's necessary to have an account on [Figma](https://figma.com) to access.
-
-
-
 
 
 ## :memo: Licence
